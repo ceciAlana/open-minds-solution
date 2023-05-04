@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.11",
+  "version": "1.0.0",
+  "id": "550dec7e-7e56-463c-8836-7826bdfc2cb6",
+  "packageName": "com.microsoft.teams.meetingstranscription",
+  "developer": {
+    "name": "Microsoft",
+    "websiteUrl": "https://www.microsoft.com",
+    "privacyUrl": "https://www.microsoft.com/privacy",
+    "termsOfUseUrl": "https://www.microsoft.com/termsofuse"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "Meeting Transcript Bot",
+    "full": "Meeting Transcript Bot"
+  },
+  "description": {
+    "short": "Bot to show the transcript of the meeting using Microsoft Graph API.",
+    "full": "This is a sample application which demonstrates how to get Transcript using Graph API and show it in the task module."
+  },
+  "accentColor": "#235EA5",
+  "bots": [
+    {
+      "botId": "550dec7e-7e56-463c-8836-7826bdfc2cb6",
+      "scopes": [ "groupchat" ],
+      "isNotificationOnly": true
+    }
+  ],
+  "validDomains": [
+    "*.ngrok-free.app",
+    "8508-2607-fea8-86e4-fa00-8832-9f4e-918b-58df.ngrok-free.app"
+  ],
+  "permissions": [ "messageTeamMembers" ],
+  "webApplicationInfo": {
+    "id": "550dec7e-7e56-463c-8836-7826bdfc2cb6",
+    "resource": "https://RscPermission",
+    "applicationPermissions": [
+      "OnlineMeeting.ReadBasic.Chat"
+    ]
+  }
+}
