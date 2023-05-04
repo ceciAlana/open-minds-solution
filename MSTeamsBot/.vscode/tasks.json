@@ -63,7 +63,7 @@
             "type": "teamsfx",
             "command": "debug-start-local-tunnel",
             "args": {
-                "ngrokArgs": "http 3922 --log=stdout --log-format=logfmt"
+                "ngrokArgs": "http 3978 --log=stdout --log-format=logfmt"
             },
             "isBackground": true,
             "problemMatcher": "$teamsfx-local-tunnel-watch"
