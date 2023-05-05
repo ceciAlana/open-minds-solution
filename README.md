@@ -8,6 +8,12 @@ pip install tiktoken
 pip install python-dotenv
 ```
 
+To use flask
+```
+pip install flask
+flask run
+```
+
 Example .env file
 ```
 OPEN_AI_API_KEY="urkeyhere23123"
