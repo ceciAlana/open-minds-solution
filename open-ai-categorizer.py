@@ -1,98 +1,14 @@
-#Note: The openai-python library support for Azure OpenAI is in preview.
-import os
-import openai
-from dotenv import load_dotenv
-load_dotenv()
+from ai_utils import get_response
 
-# Insert your own api_base, version, and key
-openai.api_type = "azure"
-openai.api_base =  os.getenv("OPEN_AI_API_BASE")
-openai.api_version =  os.getenv("OPEN_AI_API_VERSION")
-openai.api_key = os.getenv("OPEN_AI_API_KEY")
-#response = openai.Completion.create(
-#  engine="curie",
-#  prompt="#Start of meetingChairman Wormsley (at the proper time and place, after taking the chair and striking the gavel on the table): This meeting of the CTAS County Commission will come to order. Clerk please call the role. (Ensure that a majority of the members are present.)\n\nChairman Wormsley: Each of you has received the agenda. I will entertain a motion that the agenda be approved.\n\nCommissioner Brown: So moved.\n\nCommissioner Hobbs: Seconded\n\nChairman Wormsley: It has been moved and seconded that the agenda be approved as received by the members. All those in favor signify by saying \"Aye\"?...Opposed by saying \"No\"?...The agenda is approved. You have received a copy of the minutes of the last meeting. Are there any corrections or additions to the meeting?\n\nCommissioner McCroskey: Mister Chairman, my name has been omitted from the Special Committee on Indigent Care.\n\nChairman Wormsley: Thank you. If there are no objections, the minutes will be corrected to include the name of Commissioner McCroskey. Will the clerk please make this correction. Any further corrections? Seeing none, without objection the minutes will stand approved as read. (This is sort of a short cut way that is commonly used for approval of minutes and/or the agenda rather than requiring a motion and second.)\n\nChairman Wormsley: Commissioner Adkins, the first item on the agenda is yours.\n\nCommissioner Adkins: Mister Chairman, I would like to make a motion to approve the resolution taking money from the Data Processing Reserve Account in the County Clerk's office and moving it to the equipment line to purchase a laptop computer.\n\nCommissioner Carmical: I second the motion.\n\nChairman Wormsley: This resolution has a motion and second. Will the clerk please take the vote.\n\nChairman Wormsley: The resolution passes. We will now take up old business. At our last meeting, Commissioner McKee, your motion to sell property near the airport was deferred to this meeting. You are recognized.\n\nCommissioner McKee: I move to withdraw that motion.\n\nChairman Wormsley: Commissioner McKee has moved to withdraw his motion to sell property near the airport. Seeing no objection, this motion is withdrawn. The next item on the agenda is Commissioner Rodgers'.\n\nCommissioner Rodgers: I move adopton of the resolution previously provided to each of you to increase the state match local litigation tax in circuit, chancery, and criminal courts to the maximum amounts permissible. This resolution calls for the increases to go to the general fund.\n\nChairman Wormsley: Commissioner Duckett\n\nCommissioner Duckett: The sheriff is opposed to this increase.\n\nChairman Wormsley: Commissioner, you are out of order because this motion has not been seconded as needed before the floor is open for discussion or debate. Discussion will begin after we have a second. Is there a second?\n\nCommissioner Reinhart: For purposes of discussion, I second the motion.\n\nChairman Wormsley: Commissioner Rodgers is recognized.\n\nCommissioner Rodgers: (Speaks about the data on collections, handing out all sorts of numerical figures regarding the litigation tax, and the county's need for additional revenue.)\n\nChairman Wormsley: Commissioner Duckett\n\nCommissioner Duckett: I move an amendment to the motion to require 25 percent of the proceeds from the increase in the tax on criminal cases go to fund the sheriff's department.\n\nChairman Wormsley: Commissioner Malone\n\nCommissioner Malone: I second the amendment.\n\nChairman Wormsley: A motion has been made and seconded to amend the motion to increase the state match local litigation taxes to the maximum amounts to require 25 percent of the proceeds from the increase in the tax on criminal cases in courts of record going to fund the sheriff's department. Any discussion? Will all those in favor please raise your hand? All those opposed please raise your hand. The amendment carries 17-2. We are now on the motion as amended. Any further discussion?\n\nCommissioner Headrick: Does this require a two-thirds vote?\n\nChairman Wormsley: Will the county attorney answer that question?\n\nCounty Attorney Fults: Since these are only courts of record, a majority vote will pass it. The two-thirds requirement is for the general sessions taxes.\n\nChairman Wormsley: Other questions or discussion? Commissioner Adams.\n\nCommissioner Adams: Move for a roll call vote.\n\nCommissioner Crenshaw: Second\n\nChairman Wormsley: The motion has been made and seconded that the state match local litigation taxes be increased to the maximum amounts allowed by law with 25 percent of the proceeds from the increase in the tax on criminal cases in courts of record going to fund the sheriff's department. Will all those in favor please vote as the clerk calls your name, those in favor vote \"aye,\" those against vote \"no.\" Nine votes for, nine votes against, one not voting. The increase fails. We are now on new business. Commissioner Adkins, the first item on the agenda is yours.\n\nCommissioner Adkins: Each of you has previously received a copy of a resolution to increase the wheel tax by $10 to make up the state cut in education funding. I move adoption of this resolution.\n\nChairman Wormsley: Commissioner Thompson\n\nCommissioner Thompson: I second.\n\nChairman Wormsley: It has been properly moved and seconded that a resolution increasing the wheel tax by $10 to make up the state cut in education funding be passed. Any discussion? (At this point numerous county commissioners speak for and against increasing the wheel tax and making up the education cuts. This is the first time this resolution is under consideration.) Commissioner Hayes is recognized.\n\nCommissioner Hayes: I move previous question.\n\nCommisioner Crenshaw: Second.\n\nChairman Wormsley: Previous question has been moved and seconded. As you know, a motion for previous question, if passed by a two-thirds vote, will cut off further debate and require us to vote yes or no on the resolution before us. You should vote for this motion if you wish to cut off further debate of the wheel tax increase at this point. Will all those in favor of previous question please raise your hand? Will all those against please raise your hand? The vote is 17-2. Previous question passes. We are now on the motion to increase the wheel tax by $10 to make up the state cut in education funding. Will all those in favor please raise your hand? Will all those against please raise your hand? The vote is 17-2. This increase passes on first passage. Is there any other new business? Since no member is seeking recognition, are there announcements? Commissioner Hailey.\n\nCommissioner Hailey: There will be a meeting of the Budget Committee to look at solid waste funding recommendations on Tuesday, July 16 at noon here in this room.\n\nChairman Wormsley: Any other announcements? The next meeting of this body will be Monday, August 19 at 7 p.m., here in this room. Commissioner Carmical.\n\nCommissioner Carmical: There will be a chili supper at County Elementary School on August 16 at 6:30 p.m. Everyone is invited.\n\nChairman Wormsley: Commissioner Austin.\n\nCommissioner Austin: Move adjournment.\n\nCommissioner Garland: Second.\n\nChairman Wormsley: Without objection, the meeting will stand adjourned.\n#End of meeting\n\nList of events in the meeting \n",
-#  temperature=0.59,
-#  max_tokens=400,
-#  top_p=0.5,
-#  frequency_penalty=0,
-#  presence_penalty=0,
-# best_of=1,
-#  stop=None)
-content = "Chairman Wormsley (at the proper time and place, after taking the chair and striking the gavel on the table): This meeting of the CTAS County Commission will come to order. Clerk please call the role. (Ensure that a majority of the members are present.)\n\nChairman Wormsley: Each of you has received the agenda. I will entertain a motion that the agenda be approved.\n\nCommissioner Brown: So moved.\n\nCommissioner Hobbs: Seconded\n\nChairman Wormsley: It has been moved and seconded that the agenda be approved as received by the members. All those in favor signify by saying \"Aye\"?...Opposed by saying \"No\"?...The agenda is approved. You have received a copy of the minutes of the last meeting. Are there any corrections or additions to the meeting?\n\nCommissioner McCroskey: Mister Chairman, my name has been omitted from the Special Committee on Indigent Care.\n\nChairman Wormsley: Thank you. If there are no objections, the minutes will be corrected to include the name of Commissioner McCroskey. Will the clerk please make this correction. Any further corrections? Seeing none, without objection the minutes will stand approved as read. (This is sort of a short cut way that is commonly used for approval of minutes and/or the agenda rather than requiring a motion and second.)\n\nChairman Wormsley: Commissioner Adkins, the first item on the agenda is yours.\n\nCommissioner Adkins: Mister Chairman, I would like to make a motion to approve the resolution taking money from the Data Processing Reserve Account in the County Clerk's office and moving it to the equipment line to purchase a laptop computer.\n\nCommissioner Carmical: I second the motion.\n\nChairman Wormsley: This resolution has a motion and second. Will the clerk please take the vote.\n\nChairman Wormsley: The resolution passes. We will now take up old business. At our last meeting, Commissioner McKee, your motion to sell property near the airport was deferred to this meeting. You are recognized.\n\nCommissioner McKee: I move to withdraw that motion.\n\nChairman Wormsley: Commissioner McKee has moved to withdraw his motion to sell property near the airport. Seeing no objection, this motion is withdrawn. The next item on the agenda is Commissioner Rodgers'.\n\nCommissioner Rodgers: I move adopton of the resolution previously provided to each of you to increase the state match local litigation tax in circuit, chancery, and criminal courts to the maximum amounts permissible. This resolution calls for the increases to go to the general fund.\n\nChairman Wormsley: Commissioner Duckett\n\nCommissioner Duckett: The sheriff is opposed to this increase.\n\nChairman Wormsley: Commissioner, you are out of order because this motion has not been seconded as needed before the floor is open for discussion or debate. Discussion will begin after we have a second. Is there a second?\n\nCommissioner Reinhart: For purposes of discussion, I second the motion.\n\nChairman Wormsley: Commissioner Rodgers is recognized.\n\nCommissioner Rodgers: (Speaks about the data on collections, handing out all sorts of numerical figures regarding the litigation tax, and the county's need for additional revenue.)\n\nChairman Wormsley: Commissioner Duckett\n\nCommissioner Duckett: I move an amendment to the motion to require 25 percent of the proceeds from the increase in the tax on criminal cases go to fund the sheriff's department.\n\nChairman Wormsley: Commissioner Malone\n\nCommissioner Malone: I second the amendment.\n\nChairman Wormsley: A motion has been made and seconded to amend the motion to increase the state match local litigation taxes to the maximum amounts to require 25 percent of the proceeds from the increase in the tax on criminal cases in courts of record going to fund the sheriff's department. Any discussion? Will all those in favor please raise your hand? All those opposed please raise your hand. The amendment carries 17-2. We are now on the motion as amended. Any further discussion?\n\nCommissioner Headrick: Does this require a two-thirds vote?\n\nChairman Wormsley: Will the county attorney answer that question?\n\nCounty Attorney Fults: Since these are only courts of record, a majority vote will pass it. The two-thirds requirement is for the general sessions taxes.\n\nChairman Wormsley: Other questions or discussion? Commissioner Adams.\n\nCommissioner Adams: Move for a roll call vote.\n\nCommissioner Crenshaw: Second\n\nChairman Wormsley: The motion has been made and seconded that the state match local litigation taxes be increased to the maximum amounts allowed by law with 25 percent of the proceeds from the increase in the tax on criminal cases in courts of record going to fund the sheriff's department. Will all those in favor please vote as the clerk calls your name, those in favor vote \"aye,\" those against vote \"no.\" Nine votes for, nine votes against, one not voting. The increase fails. We are now on new business. Commissioner Adkins, the first item on the agenda is yours.\n\nCommissioner Adkins: Each of you has previously received a copy of a resolution to increase the wheel tax by $10 to make up the state cut in education funding. I move adoption of this resolution.\n\nChairman Wormsley: Commissioner Thompson\n\nCommissioner Thompson: I second.\n\nChairman Wormsley: It has been properly moved and seconded that a resolution increasing the wheel tax by $10 to make up the state cut in education funding be passed. Any discussion? (At this point numerous county commissioners speak for and against increasing the wheel tax and making up the education cuts. This is the first time this resolution is under consideration.) Commissioner Hayes is recognized.\n\nCommissioner Hayes: I move previous question.\n\nCommisioner Crenshaw: Second.\n\nChairman Wormsley: Previous question has been moved and seconded. As you know, a motion for previous question, if passed by a two-thirds vote, will cut off further debate and require us to vote yes or no on the resolution before us. You should vote for this motion if you wish to cut off further debate of the wheel tax increase at this point. Will all those in favor of previous question please raise your hand? Will all those against please raise your hand? The vote is 17-2. Previous question passes. We are now on the motion to increase the wheel tax by $10 to make up the state cut in education funding. Will all those in favor please raise your hand? Will all those against please raise your hand? The vote is 17-2. This increase passes on first passage. Is there any other new business? Since no member is seeking recognition, are there announcements? Commissioner Hailey.\n\nCommissioner Hailey: There will be a meeting of the Budget Committee to look at solid waste funding recommendations on Tuesday, July 16 at noon here in this room.\n\nChairman Wormsley: Any other announcements? The next meeting of this body will be Monday, August 19 at 7 p.m., here in this room. Commissioner Carmical.\n\nCommissioner Carmical: There will be a chili supper at County Elementary School on August 16 at 6:30 p.m. Everyone is invited.\n\nChairman Wormsley: Commissioner Austin.\n\nCommissioner Austin: Move adjournment.\n\nCommissioner Garland: Second.\n\nChairman Wormsley: Without objection, the meeting will stand adjourned."
-#print(response)
-
-# choices = response.choices
-
-# first = choices[0]
-# firstText = first.text
-
-# print(firstText)
-def get_response(content, prompt_postfix):
-    import tiktoken
-
-    response_chunck = []
-    n = 1000 # max tokens for chuncking
-    max_tokens = 400 # max tokens for response
-
-    tokenizer = tiktoken.get_encoding('p50k_base')
-
-    # Generate chunkcs    
-    chunks = chunk_generator(content, n, tokenizer)
-
-    # Decode chunk of text
-    text_chunks = [tokenizer.decode(chunk) for chunk in chunks]
-
-    # Request api
-    for chunk in text_chunks:
-        response_chunck.append(request_api(chunk, prompt_postfix, max_tokens))
-        #print(chunk)
-        #print('>>> synopsis: \n' + synopsis_chunck[-1])
-
-    # response
-    response = ' '.join(response_chunck)
-
-    return response
-
-def chunk_generator(text, n, tokenizer):
-    tokens = tokenizer.encode(text)
-    i = 0
-    while i < len(tokens):
-        # Find the nearest end of sentence within a range of 0.5 * n and 1.5 * n tokens
-        j = min(i + int(1.5 * n), len(tokens))
-        while j > i + int(0.5 * n):
-            # Decode the tokens and check for full stop or newline
-            chunk = tokenizer.decode(tokens[i:j])
-            if chunk.endswith(".") or chunk.endswith("\n"):
-                break
-            j -= 1
-        # If no end of sentence found, use n tokens as the chunk size
-        if j == i + int(0.5 * n):
-            j = min(i + n, len(tokens))
-        yield tokens[i:j]
-        i = j
-        
-def request_api(document, prompt_postfix, max_tokens):
-    prompt = prompt_postfix.replace('<document>',document)
-    #print(f'>>> prompt : {prompt}')
-
-    response = openai.Completion.create(  
-        engine="curie",
-        prompt=prompt,
-        temperature=0,
-        max_tokens=max_tokens,
-        top_p=1,
-        frequency_penalty=1,
-        presence_penalty=1,
-        stop='###')
-
-    return response['choices'][0]['text']
+content = "0:0:0.0 --> 0:0:0.870Tiffany BouchardYeah, hopefully.0:0:4.560 --> 0:0:5.180Jialin ShanSo.0:0:6.90 --> 0:0:6.500Tiffany BouchardHello.0:0:7.360 --> 0:0:7.760Jialin ShanHello.0:0:12.140 --> 0:0:12.610Jialin ShanAlright.0:0:15.850 --> 0:0:18.950Jialin ShanSo it will just.0:0:20.900 --> 0:0:21.830Jialin ShanGet the bot.0:0:25.520 --> 0:0:30.390Jialin ShanTo record it after if we end the meeting at some point.0:0:30.990 --> 0:0:34.230Tiffany BouchardYeah, apparently. Can you see the transcription on the side?0:0:35.480 --> 0:0:40.590Jialin ShanUh, let me see. Transcript. Yeah, I can see it.0:0:42.210 --> 0:0:42.620Tiffany BouchardCool.0:0:43.540 --> 0:0:45.730Jialin ShanYeah. Nice. Nice. Nice, nice, nice.0:0:49.170 --> 0:0:54.240Tiffany BouchardI find that if you're not like super clear and like you went on tape properly, it actually like.0:0:54.930 --> 0:0:56.80Tiffany BouchardDoesn't know what you're saying.0:0:58.90 --> 0:0:58.360Tiffany BouchardYeah.0:0:57.420 --> 0:0:59.990Jialin ShanYeah, I think the nice part about it is that.0:1:3.400 --> 0:1:6.560Jialin ShanLike if you want to plug plug it into the chat JPL.0:1:7.360 --> 0:1:10.560Jialin ShanThe IT will figure it out, so that's the nice part cause.0:1:12.420 --> 0:1:13.250Tiffany BouchardOh yeah, for sure.0:1:19.390 --> 0:1:19.840Tiffany BouchardUmm.0:1:12.930 --> 0:1:23.610Jialin ShanI I I try plugging in some of the ones that Alana found and they had a little bit of weird transcription errors from.0:1:25.70 --> 0:1:27.40Jialin ShanTeams itself, and I figured it out.0:1:27.820 --> 0:1:31.90Tiffany BouchardOK, that's really good. Should we leave it and see?0:1:35.480 --> 0:1:35.920Tiffany BouchardOK.0:1:34.230 --> 0:1:37.830Jialin ShanYeah, let's see if it gives it out and then we'll.0:1:38.630 --> 0:1:43.250Jialin ShanWe can use this as example of a meeting note too so.0:1:43.940 --> 0:1:44.560Tiffany BouchardSounds good.0:1:46.130 --> 0:1:47.800Jialin ShanOK. Bye bye.0:1:48.560 --> 0:1:49.50Tiffany BouchardBy."
 
 prompt_categories = [
-    "\nUnique speakers in the meeting\nSpeakers ",
-    "\nAgenda discussed in the meeting\nAgenda items ",
-    "\nResolutions reached in the meeting\nResolutions ",
-    "\nWhat is next after the meeting\nNext Steps "
+    # {"title": "", "prompt": "\nList speakers in the meeting. \nList Agenda discussed in the meeting. \nList the resolutions reached in the meeting. \nList next Steps\n"},
+
+    {"title": "\nSpeakers:", "prompt": "\nList speakers in the meeting\nSpeakers:\n-"},
+    {"title": "\nAgenda items:", "prompt": "\nList the Agenda of the meeting\nAgenda items:\n-"},
+    {"title": "\nResolutions:", "prompt": "\nList conclusions reached in the meeting\nConclusions:\n-"},
+    {"title": "\nNext Steps:", "prompt": "\nWhat is next after the meeting\nNext Steps:\n-"}
 ]
 
 # Prompt postfix
@@ -103,7 +19,7 @@ prompt_postfix = """ <document>
 
 
 for prompt in prompt_categories:
-    print(prompt)
-    prompt_with_postfix = prompt_postfix + prompt 
+    print(prompt["title"])
+    prompt_with_postfix = prompt_postfix + prompt["prompt"]
     response = get_response(content, prompt_with_postfix)
-    print(response)
+    print("-" + response)
