@@ -6,7 +6,7 @@
       "value": {
         "botAadAppClientId": "{{state.teams-bot.botId}}",
         "botAadAppClientSecret": "{{state.teams-bot.botPassword}}",
-        "resourceBaseName": "msteamsbot10a526"
+        "resourceBaseName": "teamsbot827388"
       }
     }
   }

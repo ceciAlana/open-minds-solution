@@ -39,6 +39,7 @@ class GraphHelper {
         })
     } 
 
+
     /**
      * Gets the meeting transcript for the passed meeting Id.
      * @param {string} meetingId Id of the meeting
@@ -72,6 +73,18 @@ class GraphHelper {
                 };
 
                 var transcript = (await axios(getTranscriptConfig)).data;
+
+                const getSummaryConfig = {
+                    method: 'post',
+                    url: 'http://127.0.0.1:5000/get-summary',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: transcript
+                };
+
+                transcript = await (axios(getSummaryConfig));
+                console.log(transcript)
 
                 return transcript;
             }

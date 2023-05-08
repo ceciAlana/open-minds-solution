@@ -1,6 +1,6 @@
 {
-    "appName": "MSTeamsBot",
-    "projectId": "dfb936f3-396a-4f5d-9617-db96641744f7",
+    "appName": "teams-bot",
+    "projectId": "7794f566-6fd0-4678-adbd-68004b668a38",
     "version": "2.1.0",
     "components": [
         {

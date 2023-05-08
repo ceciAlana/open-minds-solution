@@ -15,8 +15,8 @@
     "outline": "outline.png"
   },
   "name": {
-    "short": "Meeting Transcript Bot",
-    "full": "Meeting Transcript Bot"
+    "short": "TLDR Bot",
+    "full": "TLDR Bot"
   },
   "description": {
     "short": "Bot to show the transcript of the meeting using Microsoft Graph API.",

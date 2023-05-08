@@ -51,49 +51,23 @@ class ActivityBot extends TeamsActivityHandler {
           var graphHelper = new GraphHelper();
 
           var result = await graphHelper.GetMeetingTranscriptionsAsync(meetingDetails.details.msGraphResourceId);
+          console.log(result.data.message)
           if (result != "")
           {
-            result = result.replace("<v", "");
             var foundIndex = transcriptsDictionary.findIndex((x) => x.id === meetingDetails.details.msGraphResourceId);
             
             if (foundIndex != -1) {
-              transcriptsDictionary[foundIndex].data = result;
-              console.log(result)
+              transcriptsDictionary[foundIndex].data = result.data.message;
+              console.log(result.data.message)
             }
             else {
               transcriptsDictionary.push({
                 id: meetingDetails.details.msGraphResourceId,
-                data: result
+                data: result.data.message
               });
             }
 
-            var cardJson = {
-              "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-              "version": "1.5",
-              "type": "AdaptiveCard",
-              "body": [
-                {
-                  "type": "TextBlock",
-                  "text": "Here is the last transcript details of the meeting.",
-                  "weight": "Bolder",
-                  "size": "Large"
-                }
-              ],
-              "actions": [
-                {
-                  "type": "Action.Submit",
-                  "title": "View Transcript",
-                  "data": {
-                    "msteams": {
-                      "type": "task/fetch"
-                    },
-                    "meetingId": meetingDetails.details.msGraphResourceId
-                  }
-                }
-              ]
-            };
-
-            await context.sendActivity({ attachments: [CardFactory.adaptiveCard(cardJson)] });
+            await context.sendActivity(JSON.stringify(result.data.message));
           }
           else
           {
