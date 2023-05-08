@@ -17,9 +17,10 @@ flask run
 
 Example .env file
 ```
-OPEN_AI_API_KEY="urkeyhere23123"
-OPEN_AI_API_VERSION="2022-12-01"
-OPEN_AI_API_BASE="https://jialin-oai-scus.openai.azure.com/"
+AZURE_OPENAI_ENDPOINT=https://open-minds-ai.openai.azure.com/
+AZURE_OPENAI_API_KEY=<<YOUR API KEY>>
+AZURE_OPENAI_DEPLOYMENT_NAME=<<YOUR DEPLOYED MODEL NAME>>
+OPEN_AI_API_VERSION=2022-12-01
 
 ```
 
