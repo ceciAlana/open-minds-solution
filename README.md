@@ -28,6 +28,7 @@ Run teams bot
 
 ```
 navigate to /bot directory
+npm i
 npm start
 ```
 
