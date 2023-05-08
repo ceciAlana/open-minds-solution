@@ -9,12 +9,6 @@ pip install tiktoken
 pip install python-dotenv
 ```
 
-To use flask
-```
-pip install flask
-flask run
-```
-
 Example .env file
 ```
 AZURE_OPENAI_ENDPOINT=https://open-minds-ai.openai.azure.com/
@@ -22,6 +16,19 @@ AZURE_OPENAI_API_KEY=<<YOUR API KEY>>
 AZURE_OPENAI_DEPLOYMENT_NAME=<<YOUR DEPLOYED MODEL NAME>>
 OPEN_AI_API_VERSION=2022-12-01
 
+```
+
+To use flask / run server
+```
+pip install flask
+flask run
+```
+
+Run teams bot 
+
+```
+navigate to /bot directory
+npm start
 ```
 
 Testing in teams
